@@ -1,0 +1,30 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, getDocs } from "@firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAg8Nynqab8SomYEDofmM59kTRoAajHDkE",
+  authDomain: "hiverse-project.firebaseapp.com",
+  projectId: "hiverse-project",
+  storageBucket: "hiverse-project.appspot.com",
+  messagingSenderId: "528908395133",
+  appId: "1:528908395133:web:cb2d341e2de82021470714",
+  measurementId: "G-BHCPYR1XN7"
+};
+
+// if (!firebase.apps.length){
+//   firebase.initializeApp(firebaseConfig);
+// }
+// export {firebase};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+
+// export { app, db, getFirestore, collection, addDoc, getDocs }

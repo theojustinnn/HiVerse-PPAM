@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "528908395133",
+    "project_id": "hiverse-project",
+    "storage_bucket": "hiverse-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528908395133:android:d4c16c71557587c8470714",
+        "android_client_info": {
+          "package_name": "com.jfkent.hiverse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528908395133-d7l1au024lfkbc7tpqk3lvvd62vu5oeu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVQvu2_fVLa6uNWcT-B0LyD5F8zsp0_4c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528908395133-d7l1au024lfkbc7tpqk3lvvd62vu5oeu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "528908395133-vdrv4moqhhpdhh9kbc2igha0rgshukpm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jfkent.hiverse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
