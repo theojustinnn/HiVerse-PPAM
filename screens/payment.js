@@ -14,27 +14,20 @@ export default function Payment() {
   const route = useRoute();
 
   // Storing passed parameter from previous screen
-  const total = route.params?.total;
-  const tanggal = route.params?.tanggal;
-  const namakonser = route.params?.namakonser;
-  const kategori = route.params?.kategori;
-  const namaPembeli = route.params?.namaPembeli;
-  const noPembeli = route.params?.noPembeli;
-  const nikPembeli = route.params?.nikPembeli;  // is unused
-  const alamatPembeli = route.params?.alamatPembeli;  // is unused
+  const [total, setTotal] = useState(route.params?.total);
+  const [ticket, setTicket] = useState(route.params?.ticket);
+  const [artis, setArtis] = useState(route.params?.artis);
+  const [tanggal, setTanggal] = useState(route.params?.tanggal);
+  const [namakonser, setNamaKonser] = useState(route.params?.namakonser);
+  const [kategori, setKategori] = useState(route.params?.kategori);
+  const [kuota, setKuota] = useState(route.params?.kuota);
+  const [namaPembeli, setNamaPembeli] = useState(route.params?.namaPembeli);
+  const [noPembeli, setNoPembeli] = useState(route.params?.noPembeli);
+  const [nikPembeli, setNIKPembeli] = useState(route.params?.nikPembeli);  // is unused
+  const [alamatPembeli, setAlamatPembeli] = useState(route.params?.alamatPembeli);  // is unused
   
   // Variables used by default
   const [value, setValue] = useState("gopay"); // By default Gopay is chosen method
-
-  // IDK
-  const updateTicket = () => (
-    useEffect(() => {
-      const r = query(collection(db, "category"), where("namakonser", "==", {namakonser}, "and", "tanggal", "==", {tanggal}, "and", "kategori", "==", {tanggal})); // Should be using variable
-      onSnapshot(r, (snapshot) => {
-        setCategory(snapshot.docs.map((doc) => doc.data()))
-      })
-    }, [])
-  )
 
   // Comments on this line onwards are the to be used code
   return (
@@ -95,7 +88,12 @@ export default function Payment() {
 
       <View style={styles.container2}>
         <TouchableOpacity style={styles.button}
-        onPress={() => navigation.navigate("PaymentStatus")}>
+        onPress={() => navigation.navigate("PaymentStatus", 
+        {kuota: kuota, ticket: ticket,
+        namakonser: namakonser,
+        artis: artis,
+        tanggal: tanggal,
+        kategori: kategori})}>
         <Text style={{color: "#ffffff", fontWeight: "bold"}}>BAYAR</Text>
         </TouchableOpacity>
       </View>
