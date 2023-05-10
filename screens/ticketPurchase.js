@@ -13,10 +13,13 @@ export default function TicketPurchase () {
     const route = useRoute();
 
     // Storing passed parameter from previous screens
-    const total = route.params?.total;
-    const tanggal = route.params?.tanggal;
-    const namakonser = route.params?.namakonser;
-    const kategori = route.params?.kategori;
+    const [total, setTotal] = useState(route.params?.total);
+    const [ticket, setTicket] = useState(route.params?.ticket);
+    const [artis, setArtis] = useState(route.params?.artis);
+    const [tanggal, setTanggal] = useState(route.params?.tanggal);
+    const [namakonser, setNamaKonser] = useState(route.params?.namakonser);
+    const [kategori, setKategori] = useState(route.params?.kategori);
+    const [kuota, setKuota] = useState(route.params?.kuota);
 
     // Variables used dinamically from user input
     const [namaPembeli, setNamaPembeli] = useState("");
@@ -85,10 +88,12 @@ export default function TicketPurchase () {
                 { namaPembeli != "" && noPembeli != "" && !isNaN(Number(noPembeli)) && nikPembeli != "" && !isNaN(Number(nikPembeli)) && alamatPembeli != "" &&
                 <TouchableOpacity style={styles.buttonactive}
                     onPress={() => navigation.navigate("Payment", 
-                    {total: total, namaPembeli: namaPembeli, noPembeli: noPembeli, 
+                    {total: total, ticket: ticket,
+                        namaPembeli: namaPembeli, noPembeli: noPembeli, 
                         nikPembeli: nikPembeli, alamatPembeli: alamatPembeli, 
+                        artis: artis,
                         tanggal: tanggal, namakonser: namakonser,
-                        kategori: kategori})}>
+                        kategori: kategori, kuota: kuota})}>
                     <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>SIMPAN</Text>
                 </TouchableOpacity> }
                 { (namaPembeli == "" || noPembeli == "" || isNaN(Number(noPembeli)) || nikPembeli == "" || isNaN(Number(nikPembeli)) || alamatPembeli == "") &&
