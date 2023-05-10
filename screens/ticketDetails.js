@@ -25,17 +25,12 @@ export default function TicketDetails() {
   const [price, setPrice] = useState(2215000); 
   const [concert, setConcert] = useState({});
   const [category, setCategory] = useState({});
-  const [linkCover, setLinkCover] = useState("");
   const [tanggal, setTanggal] = useState("");
   
   // Storing passed parameter from previous screen
   // const artis = route.params?.artis;
   // const namakonser = route.params?.namakonser;
   // const kategori = route.params?.kategori;
-
-  // Trying query for testing
-  // treasureQuery = query(collection(db, "concerts"), where("artis", "==", "TREASURE"));
-  // querySnapshot = getDocs(treasureQuery);
   
   // Using firestore to search for corresponding doc
   useEffect(() => {
@@ -158,9 +153,13 @@ export default function TicketDetails() {
           </Text>
           <TouchableOpacity style={styles.button}
             onPress={() => navigation.navigate("TicketPurchase", 
-            {total: price+servicecharge, tanggal: concert[0].tanggal, 
+            {total: price+servicecharge, 
+              ticket: ticket,
+              artis: concert[0].artis,
+              tanggal: concert[0].tanggal, 
               namakonser: concert[0].namakonser,
-              kategori: category[0].kategori})}>
+              kategori: category[0].kategori,
+              kuota: category[0].kuota})}>
             <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>BELI</Text>
           </TouchableOpacity>
         </View>
