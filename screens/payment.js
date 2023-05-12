@@ -4,6 +4,7 @@ import { Appbar, Text, RadioButton } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { NumericFormat } from "react-number-format";
+import { LinearGradient } from "expo-linear-gradient";
 
 // Get window size for ease
 const win = Dimensions.get("window");
@@ -32,7 +33,7 @@ export default function Payment() {
   // Comments on this line onwards are the to be used code
   return (
     <SafeAreaProvider>
-      <Appbar.Header>
+      <Appbar.Header style={{backgroundColor: "#74E1B2"}}>
       <Appbar.BackAction onPress={() => navigation.navigate("TicketPurchase", {total: total})} />
       <Appbar.Content title="Pembayaran" titleStyle={{fontSize: 18, fontWeight: "bold"}} />
       </Appbar.Header>
