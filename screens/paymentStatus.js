@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, View, Image, ActivityIndicator } from "react-na
 import { Appbar, Text } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 import { doc, updateDoc } from "firebase/firestore"; 
 import { db } from "../config/config";
 
@@ -47,7 +48,7 @@ export default function PaymentStatus() {
 
   return (
     <SafeAreaProvider>
-      <Appbar.Header>
+      <Appbar.Header style={{backgroundColor: "#74E1B2"}}>
       <Appbar.Content title="Status Pembayaran" titleStyle={{fontSize: 18, fontWeight: "bold"}} />
       
       {isWaiting &&
