@@ -79,8 +79,8 @@ export default function Payment() {
             <RadioButton.Group onValueChange={value => setValue(value)} value={value}>
                 <RadioButton.Item label="Gopay" value="gopay" color="#FB648C" style={{flexDirection: "row-reverse"}} />
                 <RadioButton.Item label="OVO" value="ovo" color="#FB648C" style={{flexDirection: "row-reverse"}} />
-                <RadioButton.Item label="Credit Card" value="cc" color="#FB648C" style={{flexDirection: "row-reverse"}} />
-                <RadioButton.Item label="ATM/Mobile Banking" value="atm" color="#FB648C" style={{flexDirection: "row-reverse"}} />
+                <RadioButton.Item label="ShopeePay" value="spay" color="#FB648C" style={{flexDirection: "row-reverse"}} />
+                <RadioButton.Item label="DANA" value="dana" color="#FB648C" style={{flexDirection: "row-reverse"}} />
             </RadioButton.Group>
         </View>
 
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     container: {
       padding: 10,
       alignContent: "center",
+      backgroundColor: "#ffffff",
     },
     smallcontainer: {
       width: win.width-20, 
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
       alignContent: "center",
       flex: 1,
       justifyContent: "flex-end",
+      backgroundColor: "#ffffff",
     },
     total: {
       fontSize: 17,
