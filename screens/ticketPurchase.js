@@ -36,77 +36,75 @@ export default function TicketPurchase () {
             <Appbar.Content title="Pembelian Tiket" titleStyle={{fontSize: 18, fontWeight: "bold"}} />
             </Appbar.Header>
 
-            {/* <LinearGradient colors={['#74E1B2','#FFFFFF', '#FFFFFF', '#FFFFFF']}> */}
-                <View style={styles.container}>
-                    <Text style={styles.title}>Identitas Pembeli</Text>
-                    <Text style={styles.subtitle}>Silahkan memasukkan identitas Anda dengan benar dan lengkap.</Text>
-                    <TextInput
-                        label="Nama"
-                        placeholder="Nama Anda"
-                        value={namaPembeli}
-                        mode="outlined"
-                        outlineColor="#34B97F"
-                        activeOutlineColor="#FB648C"
-                        onChangeText={namaPembeli => setNamaPembeli(namaPembeli)}
-                    />
-                    <TextInput
-                        label="Nomor Telepon"
-                        placeholder="Nomor Telepon Anda"
-                        value={noPembeli}
-                        mode="outlined"
-                        outlineColor="#34B97F"
-                        activeOutlineColor="#FB648C"
-                        onChangeText={noPembeli => setNoPembeli(noPembeli)}
-                    />
-                    <TextInput
-                        label="NIK"
-                        placeholder="NIK Anda"
-                        value={nikPembeli}
-                        mode="outlined"
-                        outlineColor="#34B97F"
-                        activeOutlineColor="#FB648C"
-                        onChangeText={nikPembeli => setNIKPembeli(nikPembeli)}
-                    />
-                    <TextInput
-                        label="Alamat"
-                        placeholder="Alamat Anda"
-                        value={alamatPembeli}
-                        mode="outlined"
-                        outlineColor="#34B97F"
-                        activeOutlineColor="#FB648C"
-                        onChangeText={alamatPembeli => setAlamatPembeli(alamatPembeli)}
-                    />
-                
+            <View style={styles.container}>
+                <Text style={styles.title}>Identitas Pembeli</Text>
+                <Text style={styles.subtitle}>Silahkan memasukkan identitas Anda dengan benar dan lengkap.</Text>
+                <TextInput
+                    label="Nama"
+                    placeholder="Nama Anda"
+                    value={namaPembeli}
+                    mode="outlined"
+                    outlineColor="#34B97F"
+                    activeOutlineColor="#FB648C"
+                    onChangeText={namaPembeli => setNamaPembeli(namaPembeli)}
+                />
+                <TextInput
+                    label="Nomor Telepon"
+                    placeholder="Nomor Telepon Anda"
+                    value={noPembeli}
+                    mode="outlined"
+                    outlineColor="#34B97F"
+                    activeOutlineColor="#FB648C"
+                    onChangeText={noPembeli => setNoPembeli(noPembeli)}
+                />
+                <TextInput
+                    label="NIK"
+                    placeholder="NIK Anda"
+                    value={nikPembeli}
+                    mode="outlined"
+                    outlineColor="#34B97F"
+                    activeOutlineColor="#FB648C"
+                    onChangeText={nikPembeli => setNIKPembeli(nikPembeli)}
+                />
+                <TextInput
+                    label="Alamat"
+                    placeholder="Alamat Anda"
+                    value={alamatPembeli}
+                    mode="outlined"
+                    outlineColor="#34B97F"
+                    activeOutlineColor="#FB648C"
+                    onChangeText={alamatPembeli => setAlamatPembeli(alamatPembeli)}
+                />
             
+        
+            
+                { (namaPembeli == "" || noPembeli == "" || nikPembeli == "" || alamatPembeli == "") &&
+                <Text style={styles.alert}>{"\n"}*Setiap informasi harus terisi</Text> }
                 
-                    { (namaPembeli == "" || noPembeli == "" || nikPembeli == "" || alamatPembeli == "") &&
-                    <Text style={styles.alert}>{"\n"}*Setiap informasi harus terisi</Text> }
-                    
-                    { isNaN(Number(noPembeli)) &&
-                    <Text style={styles.alert}>*Nomor telepon tidak valid</Text> }
-                    
-                    { isNaN(Number(nikPembeli)) &&
-                    <Text style={styles.alert}>*NIK tidak valid</Text> }
-                    <View style={styles.container2}>
-                        { namaPembeli != "" && noPembeli != "" && !isNaN(Number(noPembeli)) && nikPembeli != "" && !isNaN(Number(nikPembeli)) && alamatPembeli != "" &&
-                        <TouchableOpacity style={styles.buttonactive}
-                            onPress={() => navigation.navigate("Payment", 
-                            {total: total, ticket: ticket,
-                                namaPembeli: namaPembeli, noPembeli: noPembeli, 
-                                nikPembeli: nikPembeli, alamatPembeli: alamatPembeli, 
-                                artis: artis,
-                                tanggal: tanggal, namakonser: namakonser,
-                                kategori: kategori, kuota: kuota})}>
-                            <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>SIMPAN</Text>
-                        </TouchableOpacity> }
-                        { (namaPembeli == "" || noPembeli == "" || isNaN(Number(noPembeli)) || nikPembeli == "" || isNaN(Number(nikPembeli)) || alamatPembeli == "") &&
-                        <TouchableOpacity style={styles.buttoninactive}
-                            disabled>
-                            <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>SIMPAN</Text>
-                        </TouchableOpacity> }
-                    </View>
+                { isNaN(Number(noPembeli)) &&
+                <Text style={styles.alert}>*Nomor telepon tidak valid</Text> }
+                
+                { isNaN(Number(nikPembeli)) &&
+                <Text style={styles.alert}>*NIK tidak valid</Text> }
+                <View style={styles.container2}>
+                    { namaPembeli != "" && noPembeli != "" && !isNaN(Number(noPembeli)) && nikPembeli != "" && !isNaN(Number(nikPembeli)) && alamatPembeli != "" &&
+                    <TouchableOpacity style={styles.buttonactive}
+                        onPress={() => navigation.navigate("Payment", 
+                        {total: total, ticket: ticket,
+                            namaPembeli: namaPembeli, noPembeli: noPembeli, 
+                            nikPembeli: nikPembeli, alamatPembeli: alamatPembeli, 
+                            artis: artis,
+                            tanggal: tanggal, namakonser: namakonser,
+                            kategori: kategori, kuota: kuota})}>
+                        <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>SIMPAN</Text>
+                    </TouchableOpacity> }
+                    { (namaPembeli == "" || noPembeli == "" || isNaN(Number(noPembeli)) || nikPembeli == "" || isNaN(Number(nikPembeli)) || alamatPembeli == "") &&
+                    <TouchableOpacity style={styles.buttoninactive}
+                        disabled>
+                        <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>SIMPAN</Text>
+                    </TouchableOpacity> }
                 </View>
-            {/* </LinearGradient> */}
+            </View>
         </SafeAreaProvider>
     );
 }
