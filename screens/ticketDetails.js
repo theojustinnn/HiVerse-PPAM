@@ -72,105 +72,103 @@ export default function TicketDetails() {
 
       {!isWaiting1 && !isWaiting2 &&
       <ScrollView>
-      <LinearGradient colors={['#74E1B2','#FFFFFF', '#FFFFFF', '#FFFFFF']}>
-        <View style={styles.container}>
-          <Image source={{uri: concert[0].cover}}
-          style={styles.coverimage} />
-          <Text style={styles.title}>{"\n"}[{artis}] {namakonser}</Text>
-          <Text style={styles.subtitle}>{"\n"}Informasi Tiket{"\n"}</Text>
-          
-          <View style={styles.box}>
-            <Text style={styles.seat}>{"\n"}{kategori}</Text>
-            <Text style={styles.seatdetails}>Pengembalian tidak tersedia, konfirmasi instan</Text>
-            <Text style={styles.seatprice}>
-              {"\n"}
-              <NumericFormat renderText={text => <Text style={styles.seatprice}>{text}</Text>} value={price} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
-            </Text>
-            <View style={{alignItems: "center", flexDirection: "row"}}>
-              <View style={{flex: 1}} />
-              { ticket == 2 &&
-              <TouchableOpacity style={styles.buttonactive}
-                onPress={() => {setTicket(1), setPrice(price/2)}}>
-                <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>-</Text>
-              </TouchableOpacity>}
-              { ticket == 1 &&
-              <TouchableOpacity style={styles.buttoninactive}
-                disabled>
-                <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>-</Text>
-              </TouchableOpacity>}
-              <Text>
-                {"  "}{ticket}{"  "}
-              </Text>
-              { (ticket == 2 || category[0].kuota < 2 ) &&
-              <TouchableOpacity style={styles.buttoninactive}
-                disabled>
-                <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>+</Text>
-              </TouchableOpacity>}
-              { ticket == 1 && category[0].kuota > 1 &&
-              <TouchableOpacity style={styles.buttonactive}
-                onPress={() => {setTicket(2), setPrice(price*2)}}>
-                <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>+</Text>
-              </TouchableOpacity>}
-              <View style={{flex: 1}} />
-            </View>
-          </View>
-
-          <View style={styles.smallcontainer}>
-            <Text style={styles.left}>
-              {"\n"}Tanggal
-            </Text>
-            <Text style={styles.right}>
-              {"\n"}{concert[0].tanggal}{"\n"}
-            </Text>
-          </View>
-
-          <View style={styles.horizontalline} />
-          <View style={styles.smallcontainer}>
-            <Text style={styles.left}>
-              {"\n"}Biaya Tiket
-            </Text>
-            <Text style={styles.right}>
-              {"\n"}
-              <NumericFormat renderText={text => <Text style={styles.right}>{text}</Text>} value={price} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
-            </Text>
-          </View>
-
-          <View style={styles.smallcontainer}>
-            <Text style={styles.left}>
-              {"\n"}Biaya Layanan
-            </Text>
-            <Text style={styles.right}>
-              {"\n"}
-              <NumericFormat renderText={text => <Text style={styles.right}>{text}</Text>} value={servicecharge} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
-              {"\n"}
-            </Text>
-          </View>
-
-          <View style={styles.horizontalline} />
-          <View style={styles.smallcontainer}>
+      <View style={styles.container}>
+        <Image source={{uri: concert[0].cover}}
+        style={styles.coverimage} />
+        <Text style={styles.title}>{"\n"}[{artis}] {namakonser}</Text>
+        <Text style={styles.subtitle}>{"\n"}Informasi Tiket{"\n"}</Text>
+        
+        <View style={styles.box}>
+          <Text style={styles.seat}>{"\n"}{kategori}</Text>
+          <Text style={styles.seatdetails}>Pengembalian tidak tersedia, konfirmasi instan</Text>
+          <Text style={styles.seatprice}>
+            {"\n"}
+            <NumericFormat renderText={text => <Text style={styles.seatprice}>{text}</Text>} value={price} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
+          </Text>
+          <View style={{alignItems: "center", flexDirection: "row"}}>
+            <View style={{flex: 1}} />
+            { ticket == 2 &&
+            <TouchableOpacity style={styles.buttonactive}
+              onPress={() => {setTicket(1), setPrice(price/2)}}>
+              <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>-</Text>
+            </TouchableOpacity>}
+            { ticket == 1 &&
+            <TouchableOpacity style={styles.buttoninactive}
+              disabled>
+              <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>-</Text>
+            </TouchableOpacity>}
             <Text>
-              {"\n"}Total Pembayaran
+              {"  "}{ticket}{"  "}
             </Text>
-          </View>
-
-          <View style={styles.smallcontainer2}>
-            <Text style={styles.total}>
-              {"\n"}<NumericFormat renderText={text => <Text style={styles.total}>{text}</Text>} value={price+servicecharge} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
-            </Text>
-            <TouchableOpacity style={styles.button}
-              onPress={() => navigation.navigate("TicketPurchase", 
-              {total: price+servicecharge, 
-                ticket: ticket,
-                artis: concert[0].artis,
-                tanggal: concert[0].tanggal, 
-                namakonser: concert[0].namakonser,
-                kategori: category[0].kategori,
-                kuota: category[0].kuota})}>
-              <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>BELI</Text>
-            </TouchableOpacity>
+            { (ticket == 2 || category[0].kuota < 2 ) &&
+            <TouchableOpacity style={styles.buttoninactive}
+              disabled>
+              <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>+</Text>
+            </TouchableOpacity>}
+            { ticket == 1 && category[0].kuota > 1 &&
+            <TouchableOpacity style={styles.buttonactive}
+              onPress={() => {setTicket(2), setPrice(price*2)}}>
+              <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>+</Text>
+            </TouchableOpacity>}
+            <View style={{flex: 1}} />
           </View>
         </View>
-      </LinearGradient>
+
+        <View style={styles.smallcontainer}>
+          <Text style={styles.left}>
+            {"\n"}Tanggal
+          </Text>
+          <Text style={styles.right}>
+            {"\n"}{concert[0].tanggal}{"\n"}
+          </Text>
+        </View>
+
+        <View style={styles.horizontalline} />
+        <View style={styles.smallcontainer}>
+          <Text style={styles.left}>
+            {"\n"}Biaya Tiket
+          </Text>
+          <Text style={styles.right}>
+            {"\n"}
+            <NumericFormat renderText={text => <Text style={styles.right}>{text}</Text>} value={price} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
+          </Text>
+        </View>
+
+        <View style={styles.smallcontainer}>
+          <Text style={styles.left}>
+            {"\n"}Biaya Layanan
+          </Text>
+          <Text style={styles.right}>
+            {"\n"}
+            <NumericFormat renderText={text => <Text style={styles.right}>{text}</Text>} value={servicecharge} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
+            {"\n"}
+          </Text>
+        </View>
+
+        <View style={styles.horizontalline} />
+        <View style={styles.smallcontainer}>
+          <Text>
+            {"\n"}Total Pembayaran
+          </Text>
+        </View>
+
+        <View style={styles.smallcontainer2}>
+          <Text style={styles.total}>
+            {"\n"}<NumericFormat renderText={text => <Text style={styles.total}>{text}</Text>} value={price+servicecharge} displayType={"text"} thousandSeparator={"."} decimalSeparator={","} prefix={"Rp"} />
+          </Text>
+          <TouchableOpacity style={styles.button}
+            onPress={() => navigation.navigate("TicketPurchase", 
+            {total: price+servicecharge, 
+              ticket: ticket,
+              artis: concert[0].artis,
+              tanggal: concert[0].tanggal, 
+              namakonser: concert[0].namakonser,
+              kategori: category[0].kategori,
+              kuota: category[0].kuota})}>
+            <Text style={{color: "#FFFFFF", fontWeight: "bold"}}>BELI</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
       </ScrollView> }
     </SafeAreaProvider>
   )
@@ -182,6 +180,7 @@ const styles = StyleSheet.create({
       flexWrap: "wrap",
       padding: 10,
       alignContent: "center",
+      backgroundColor: "#ffffff",
     },
     smallcontainer: {
       width: win.width-20, 
@@ -191,6 +190,7 @@ const styles = StyleSheet.create({
       width: win.width-20, 
       flexDirection: "row",
       paddingBottom: 20,
+      backgroundColor: "#ffffff",
     },
     title: {
       fontSize: 18,
