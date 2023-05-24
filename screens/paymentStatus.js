@@ -58,11 +58,11 @@ export default function PaymentStatus() {
       // <Appbar.Action icon="close" onPress={() => navigation.navigate("HomeConcert")} />}
       <Appbar.Action icon="close" onPress={() => navigation.navigate("TicketDetails")} />}
       </Appbar.Header>
-      <View style={{flex: 1, alignItems: "center", justifyContent: "center"}}>
+      <View style={{flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "#ffffff",}}>
         {isWaiting && 
         <ActivityIndicator size={win.width/3} color={"#FB648C"} />}
         {!isWaiting &&
-        <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+        <View style={{flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#ffffff",}}>
           <Image source={require("../assets/paymentSuccess.png")} 
           style={{width: win.width/2, height: win.width/2}}/> 
           <Text style={styles.title}>{"\n"}PEMBAYARAN BERHASIL!</Text>
